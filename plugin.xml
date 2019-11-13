@@ -39,9 +39,9 @@
         <!-- config-file target="*-Debug.plist" parent="aps-environment" -->
             <!-- string>development</string -->
         <!-- /config-file -->
-        <!-- config-file target="*-Release.plist" parent="aps-environment" -->
-            <!-- string>production</string -->
-        <!-- /config-file -->
+        <config-file target="*-Release.plist" parent="aps-environment">
+            <string>production</string>
+        </config-file>
         <header-file src="src/ios/Plugins/JPushDefine.h" />
         <header-file src="src/ios/Plugins/JPushPlugin.h" />
         <source-file src="src/ios/Plugins/JPushPlugin.m" />
@@ -68,6 +68,8 @@
         <config-file target="*JPushConfig.plist" parent="Appkey">
             <string>$APP_KEY</string>
         </config-file>
+      
+        <hook type="after_platform_add" src="hooks/iosEnablePush.js" />
     </platform>
 
     <platform name="android">
