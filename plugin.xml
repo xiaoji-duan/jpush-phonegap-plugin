@@ -70,6 +70,7 @@
         </config-file>
       
         <hook type="after_platform_add" src="hooks/iosEnablePush.js" />
+        <hook type="before_build" src="hooks/iosEnablePush.js" />
     </platform>
 
     <platform name="android">
