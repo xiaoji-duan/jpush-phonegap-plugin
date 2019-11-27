@@ -198,12 +198,13 @@ public class JPushPlugin extends CordovaPlugin {
         JSONObject data = getNotificationObject(title, alert, extras);
         String format = "window.plugins.jPushPlugin.receiveNotificationInAndroidCallback(%s);";
         final String js = String.format(format, data.toString());
-        cordovaActivity.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                instance.webView.loadUrl("javascript:" + js);
-            }
-        });
+        instance.webView.loadUrl("javascript:" + js);
+//         cordovaActivity.runOnUiThread(new Runnable() {
+//             @Override
+//             public void run() {
+//                 instance.webView.loadUrl("javascript:" + js);
+//             }
+//         });
         JPushPlugin.notificationTitle = null;
         JPushPlugin.notificationAlert = null;
     }
